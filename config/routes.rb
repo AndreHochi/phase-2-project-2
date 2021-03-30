@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   post "/orders/:id", to: "orders#delete"
   post "/orders/:id", to: "orders#add_item"
 
+  get 'welcome', to: 'users#welcome'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  delete '/logout', to: 'sessions#destroy'
 
 end
