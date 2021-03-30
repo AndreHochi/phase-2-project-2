@@ -1,0 +1,6 @@
+<h1>EDIT USER</h1>
+<hr>
+<%= form_with model: @order do |f| %> 
+<%= f.collection_select(:location_id, Location.all, :id, :name)%>
+<%= f.submit %>
+<% end %>
