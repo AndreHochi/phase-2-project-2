@@ -4,7 +4,7 @@
 <p>Balance: $<%= "#{'%.02f' % @user.balance }" %> <p>
 <ul>
 Past Orders: <% @user.orders.each do |order| %>
-   <li> Receipt Number: <%= link_to order.id %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
+   <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
     <% end %>
 </ul>
 

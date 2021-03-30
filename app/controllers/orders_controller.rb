@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     end
 
     def create
-        @order = Order.create({user_id: order.user_id,
+        @order = Order.create({user_id: current_user.id,
             location_id: params[:order][:location_id]})
         redirect_to order_path(@order)
     end
