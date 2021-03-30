@@ -1,0 +1,2 @@
+class ItemorderjoinersController < ApplicationController
+end
