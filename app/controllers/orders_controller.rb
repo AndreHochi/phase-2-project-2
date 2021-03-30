@@ -27,10 +27,10 @@ class OrdersController < ApplicationController
         redirect_to order_path(@order)
     end
 
-    def delete
+    def destroy
         @order = Order.find(params[:id])
         @order.destroy
-        redirect_to items_path #NEED NEW PATH LOCATION
+        redirect_to current_user
     end
 
 end

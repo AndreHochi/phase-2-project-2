@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :users
 
-  post "/orders/:id", to: "orders#delete"
   post "/orders/:id", to: "orders#add_item"
 
   get 'welcome', to: 'users#welcome'

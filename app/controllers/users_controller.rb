@@ -37,9 +37,9 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user = User.find(params[:id])
-        @user.destroy
-        redirect_to items_path
+        byebug
+        current_user.destroy
+        redirect_to "/welcome"
     end
     
 end
