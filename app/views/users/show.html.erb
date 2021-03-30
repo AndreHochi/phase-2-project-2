@@ -2,3 +2,4 @@
 <hr>
 <p>Reward Points: <%= @user.reward_points %> <p>
 <p>Balance: $<%= "#{'%.02f' % @user.balance }" %> <p>
+<%= button_to "delete", "/users/:id/", method: :delete %>

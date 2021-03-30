@@ -1,0 +1,10 @@
+<h1>Create an Item to your order</h1>
+
+<%= form_with model: @itemorderjoiner do |f| %> 
+<%= f.label :order %>
+<%= f.collection_select(:order_id, Order.all, :id, :id)%> <!-- will need to be adjusted so its all orders for that one person -->
+<%= f.label :item %>
+<%= f.collection_select(:item_id, Item.all, :id, :name)%>
+<!-- adjust submit button to say something else -->
+<%= f.submit %> 
+<% end %>

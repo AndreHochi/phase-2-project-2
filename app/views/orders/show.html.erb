@@ -1,0 +1,11 @@
+<h1>Hello <%= @order.user.username%></h1>
+<hr>
+<h2> Add items </h2>
+<!-- two button error -->
+<%= button_to "Add items to your Order", action: "add_item"%><hr>
+<h2> Your current items </h2>
+<% @order.itemorderjoiners.each do |itemorderjoiner| %>
+<li> <%= link_to itemorderjoiner.item.name, itemorderjoiner %> </li>
+<!-- button to delete itemorderjoiner -->
+<% end %>
+<%= button_to "delete", action: "delete" %>
