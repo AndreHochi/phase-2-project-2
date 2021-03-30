@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   resources :locations
   resources :orders
   resources :users
+
+  get 'welcome', to: 'users#welcome'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  delete '/logout', to: 'sessions#destroy'
+
 end
