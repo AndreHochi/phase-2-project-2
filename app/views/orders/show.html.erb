@@ -1,11 +1,25 @@
 <h1>Hello <%= @order.user.username%></h1>
 <hr>
 <h2> Add items </h2>
-<!-- two button error -->
-<%= button_to "Add items to your Order", @order, method: :add_item%> <hr>
+<%= form_with model: @itemorderjoiner do |f| %> 
+<%= f.hidden_field(:order_id, value: @order.id)%>
+<%= f.collection_select(:item_id, Item.all, :id, :name)%>
+<%= f.submit "Add Item"%>
+<% end %>
+
 <h2> Your current items </h2>
 <% @order.itemorderjoiners.each do |itemorderjoiner| %>
-<li> <%= link_to itemorderjoiner.item.name, itemorderjoiner %> </li>
-<!-- button to delete itemorderjoiner -->
+<li> <%= link_to itemorderjoiner.item.name, itemorderjoiner %> 
+Cost- $<%= "#{'%.02f' %  itemorderjoiner.item.price}"%>
+<%= button_to "delete", itemorderjoiner, method: :delete %> </li>
 <% end %>
+
+<h2> Check out </h2>
+<p> Total Cost- $<%= "#{'%.02f' %  @order.total_cost}" %></p>
+<!-- redirect -->
+<%= button_to "Checkout", action: :checkout %> 
+
+<h2> Delete your order</h2>
 <%= button_to "delete", @order, method: :delete %>
+
+<!-- order attribute to say paid for-->

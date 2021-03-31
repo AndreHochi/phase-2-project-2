@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   resources :orders
   resources :users
 
-  post "/orders/:id", to: "orders#add_item"
+  get '/orders/:id/checkout/', to: 'orders#checkout'
 
   get 'welcome', to: 'users#welcome'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+
 
   delete '/logout', to: 'sessions#destroy'
 

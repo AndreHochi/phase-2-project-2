@@ -10,7 +10,7 @@ class ItemorderjoinersController < ApplicationController
         redirect_to order_path(@itemorderjoiner.order)
     end
 
-    def delete
+    def destroy
         @itemorderjoiner = Itemorderjoiner.find(params[:id])
         @itemorderjoiner.destroy
         redirect_to order_path(@itemorderjoiner.order)

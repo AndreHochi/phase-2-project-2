@@ -2,10 +2,21 @@ class OrdersController < ApplicationController
 
     def show
         @order = Order.find(params[:id])
+        @itemorderjoiner = Itemorderjoiner.new
     end
 
-    def add_item
-        redirect_to new_itemsorderjoiner_path(@order)
+    #def add_item
+    #    @order = Order.find(params[:id])
+    #    @itemjoiner = Itemorderjoiner.create(order_id: @order.id, item_id: params[:item_id])
+    #    redirect_to order_path(@order)
+    #end
+
+    def checkout
+        
+    end
+
+    def checkout1
+        
     end
 
     def new
