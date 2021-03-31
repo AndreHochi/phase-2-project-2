@@ -37,7 +37,6 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        byebug
         current_user.destroy
         redirect_to "/welcome"
     end

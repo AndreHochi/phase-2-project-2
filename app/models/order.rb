@@ -12,5 +12,4 @@ class Order < ApplicationRecord
         array.sum
     end
 
-    #generate item(item)
 end

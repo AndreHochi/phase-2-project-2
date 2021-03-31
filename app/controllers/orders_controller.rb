@@ -34,6 +34,30 @@ class OrdersController < ApplicationController
         redirect_to order_path(@order)
     end
 
+    def paynow
+        @order = Order.find(params[:id])
+        @user = @order.user
+        @user.update({balance: @user.balance - @order.total_cost, reward_points: @user.reward_points + 5})
+        if @user.valid?
+            redirect_to current_user
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to @order
+        end
+    end
+
+    def discount
+        @order = Order.find(params[:id])
+        @user = @order.user
+        @user.update({balance: (@user.balance - (@order.total_cost * 0.80)), reward_points: (@user.reward_points - 30)})
+        if @user.valid?
+            redirect_to current_user
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to @order
+        end
+    end
+
     def destroy
         @order = Order.find(params[:id])
         @order.destroy

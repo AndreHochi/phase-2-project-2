@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   resources :orders
   resources :users
 
-  get '/orders/:id/checkout/', to: 'orders#checkout'
   post '/orders/:id/checkout/', to: 'orders#checkout'
+
+  post '/orders/:id/paynow/', to: 'orders#paynow'
+
+  post '/orders/:id/discount/', to: 'orders#discount'
 
 
   get 'welcome', to: 'users#welcome'
