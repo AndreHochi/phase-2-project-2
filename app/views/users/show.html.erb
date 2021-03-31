@@ -5,13 +5,17 @@
 
 <p>Past Orders: </p> 
 <ul> <% @user.orders.each do |order| %>
-   <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
+    <% if order.paid_for == true %>
+        <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
+        <% end %>
     <% end %>
 </ul>
 
 <p>Current Orders: </p> 
 <ul> <% @user.orders.each do |order| %>
-   <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
+    <% if order.paid_for == false %>
+        <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
+        <% end %>
     <% end %>
 </ul>
 

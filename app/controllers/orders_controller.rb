@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
     def paynow
         @order = Order.find(params[:id])
         @user = @order.user
-        @user.update({balance: @user.balance - @order.total_cost, reward_points: @user.reward_points + 5})
+        @user.update({balance: @user.balance - @order.total_cost, reward_points: @user.reward_points + 5, paid_for: true})
         if @user.valid?
             redirect_to current_user
         else
@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     def discount
         @order = Order.find(params[:id])
         @user = @order.user
-        @user.update({balance: (@user.balance - (@order.total_cost * 0.80)), reward_points: (@user.reward_points - 30)})
+        @user.update({balance: @user.balance - @order.total_cost * 0.80, reward_points: @user.reward_points - 30, paid_for: true})
         if @user.valid?
             redirect_to current_user
         else
