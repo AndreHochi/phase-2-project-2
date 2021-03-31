@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   get '/orders/:id/checkout/', to: 'orders#checkout'
   post '/orders/:id/checkout/', to: 'orders#checkout'
 
+  get '/users/:id/add_balance', to: 'users#add_balance'
+  post '/users/:id/add_balance', to: 'users#add_balance'
+
+  post '/users/:id/add_five', to: 'users#add_five'
+  post '/users/:id/add_one', to: 'users#add_one'
+  post '/users/:id/add_ten', to: 'users#add_ten'
+
 
   get 'welcome', to: 'users#welcome'
   get '/login', to: 'sessions#new'

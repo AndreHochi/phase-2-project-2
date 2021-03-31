@@ -30,12 +30,12 @@ i5 = Item.create(name: "Coke", price: 1.50, ingredients: "High fructose corn syr
 i6 = Item.create(name: "Dr. Pepper", price: 1.50, ingredients: "High fructose corn syrup and water", calories: 150)
 i7 = Item.create(name: "Chicken tendies", price: 3.50, ingredients: "Chicken byproduct", calories: 400)
 
-o1 = Order.create(user_id: u1.id, location_id: l1.id)
-o2 = Order.create(user_id: u1.id, location_id: l2.id)
-o3 = Order.create(user_id: u2.id, location_id: l3.id)
-o4 = Order.create(user_id: u2.id, location_id: l4.id)
-o5 = Order.create(user_id: u3.id, location_id: l2.id)
-o6 = Order.create(user_id: u4.id, location_id: l3.id)
+o1 = Order.create(user_id: u1.id, location_id: l1.id, paid_for: true)
+o2 = Order.create(user_id: u1.id, location_id: l2.id, paid_for: true)
+o3 = Order.create(user_id: u2.id, location_id: l3.id, paid_for: true)
+o4 = Order.create(user_id: u2.id, location_id: l4.id, paid_for: true)
+o5 = Order.create(user_id: u3.id, location_id: l2.id, paid_for: true)
+o6 = Order.create(user_id: u4.id, location_id: l3.id, paid_for: true)
 
 ioj1 = Itemorderjoiner.create(item_id: i2.id, order_id: o1.id)
 ioj2 = Itemorderjoiner.create(item_id: i4.id, order_id: o1.id)

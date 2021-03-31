@@ -2,6 +2,8 @@
 <hr>
 <p>Reward Points: <%= @user.reward_points %> <p>
 <p>Balance: $<%= "#{'%.02f' % @user.balance }" %> <p>
+<h2> Add Balance? </h2>
+<%= button_to "Add Balance", {action: :add_balance, id: @user.id} %> 
 <ul>
 Past Orders: <% @user.orders.each do |order| %>
    <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
