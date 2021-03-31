@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_200518) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "location_id"
+    t.boolean "paid_for", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

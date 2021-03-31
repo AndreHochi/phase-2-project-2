@@ -1,0 +1,7 @@
+<h1> Add money to <%= @user.username%>'s account </h1>
+
+<h2> Add money </h2>
+<%= button_to "Add $1", {action: :add_one, id: @user.id} %>
+<%= button_to "Add $5", {action: :add_five, id: @user.id} %>
+<%= button_to "Add $10", {action: :add_ten, id: @user.id} %>
+

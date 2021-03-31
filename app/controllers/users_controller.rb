@@ -41,4 +41,26 @@ class UsersController < ApplicationController
         redirect_to "/welcome"
     end
     
+    def add_balance
+        @user = User.find(params[:id])
+        # @user.add_money(params[:balance])
+    end
+    
+    def add_one
+        @user = User.find(params[:id])
+        @user.update({balance: @user.balance + 1})
+        redirect_to @user
+    end 
+    
+    def add_five
+        @user = User.find(params[:id])
+        @user.update({balance: @user.balance + 5})
+        redirect_to @user
+    end 
+
+    def add_ten
+        @user = User.find(params[:id])
+        @user.update({balance: @user.balance + 10})
+        redirect_to @user
+    end 
 end
