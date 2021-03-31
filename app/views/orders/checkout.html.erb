@@ -1,1 +1,7 @@
-<h1> hi </h1>
+<h1> Checkout </h1>
+
+<h2> Your total price is Total Cost- $<%= "#{'%.02f' %  @order.total_cost}" %> Would you like to pay now or pay with a discount?<h2>
+
+<%= button_to "Pay now", itemorderjoiner, {action: :paynow, id: @order.id} %> </li>
+
+<%= button_to "Pay with discount", itemorderjoiner, action: discount, id: @order.id %> </li>

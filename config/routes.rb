@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users
 
   get '/orders/:id/checkout/', to: 'orders#checkout'
+  post '/orders/:id/checkout/', to: 'orders#checkout'
+
 
   get 'welcome', to: 'users#welcome'
   get '/login', to: 'sessions#new'

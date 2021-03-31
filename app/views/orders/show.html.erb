@@ -17,7 +17,7 @@ Cost- $<%= "#{'%.02f' %  itemorderjoiner.item.price}"%>
 <h2> Check out </h2>
 <p> Total Cost- $<%= "#{'%.02f' %  @order.total_cost}" %></p>
 <!-- redirect -->
-<%= button_to "Checkout", action: :checkout %> 
+<%= button_to "Checkout", {action: :checkout, id: @order.id} %> 
 
 <h2> Delete your order</h2>
 <%= button_to "delete", @order, method: :delete %>

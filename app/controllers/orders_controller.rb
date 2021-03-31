@@ -12,11 +12,7 @@ class OrdersController < ApplicationController
     #end
 
     def checkout
-        
-    end
-
-    def checkout1
-        
+        @order = Order.find(params[:id])
     end
 
     def new
