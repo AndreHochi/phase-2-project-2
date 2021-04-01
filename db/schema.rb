@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_200518) do
     t.float "price"
     t.string "ingredients"
     t.integer "calories"
+    t.string "picture_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_200518) do
     t.string "password_digest"
     t.integer "reward_points"
     t.float "balance"
+    t.string "profile_picture", default: "https://i.pinimg.com/originals/3b/17/fe/3b17fe518d484d23e5da184f25327fa1.jpg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
