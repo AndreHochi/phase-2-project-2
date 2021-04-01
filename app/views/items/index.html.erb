@@ -3,3 +3,5 @@
 <% @items.each do |item| %>
 <li> <%= link_to item.name, item %> </li>
 <% end %>
+
+<%= button_to "Return to welcome page", '/welcome', method: :get %>
