@@ -1,5 +1,6 @@
 <h1><%= @item.name %></h1>
 <hr>
+<img src="<%=@item.picture_url%>" alt="Item picture" width="500" height="500">
 <p>Price: $<%= "#{'%.02f' % @item.price}" %></p>
 <p>Ingredients: <%= @item.ingredients %></p>
 <p>Calories: <%= @item.calories %> kcal</p>
