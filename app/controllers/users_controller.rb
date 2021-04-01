@@ -48,19 +48,25 @@ class UsersController < ApplicationController
     
     def add_one
         @user = User.find(params[:id])
-        @user.update({balance: @user.balance + 1})
+        @user.plus_one
         redirect_to @user
     end 
     
     def add_five
         @user = User.find(params[:id])
-        @user.update({balance: @user.balance + 5})
+        @user.plus_five
         redirect_to @user
     end 
 
     def add_ten
         @user = User.find(params[:id])
-        @user.update({balance: @user.balance + 10})
+        @user.plus_ten
+        redirect_to @user
+    end 
+
+    def add_twenty
+        @user = User.find(params[:id])
+        @user.plus_twenty
         redirect_to @user
     end 
 end
