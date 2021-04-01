@@ -10,18 +10,30 @@
     <% end %>
 <% end %>
 
-<h2> Add items </h2>
-<%= form_with model: @itemorderjoiner do |f| %> 
-<%= f.hidden_field(:order_id, value: @order.id)%>
-<%= f.collection_select(:item_id, Item.all, :id, :name)%>
-<%= f.submit "Add Item"%>
+
+<% if @order.paid_for != true%>
+    <h2> Add items </h2>
+    <%= form_with model: @itemorderjoiner do |f| %> 
+    <%= f.hidden_field(:order_id, value: @order.id)%>
+    <%= f.collection_select(:item_id, Item.all, :id, :name)%>
+    <%= f.submit "Add Item"%>
+    <% end %>
 <% end %>
 
-<h2> Your current items </h2>
+<% if @order.paid_for == true%>
+    <h2> Your past items </h2>
+<% else %>
+    <h2> Your current items </h2>
+<% end %>
+
+    
+
 <% @order.itemorderjoiners.each do |itemorderjoiner| %>
-<li> <%= link_to itemorderjoiner.item.name, itemorderjoiner.item %> 
-Cost- $<%= "#{'%.02f' %  itemorderjoiner.item.price}"%>
-<%= button_to "delete", itemorderjoiner, method: :delete %> </li>
+    <li> <%= link_to itemorderjoiner.item.name, itemorderjoiner.item %> 
+    Cost- $<%= "#{'%.02f' %  itemorderjoiner.item.price}"%>
+    <% if @order.paid_for != true%>
+        <%= button_to "delete", itemorderjoiner, method: :delete %> </li>
+    <% end %>
 <% end %>
 
 <h2> Your current balance </h2>
@@ -30,9 +42,13 @@ Cost- $<%= "#{'%.02f' %  itemorderjoiner.item.price}"%>
 <h2> Your reward points </h2>
 <p> Reward Points: <%= @order.user.reward_points %></p>
 
-<h2> Check out </h2>
-<p> Total Cost $<%= "#{'%.02f' %  @order.total_cost}" %></p>
-<%= button_to "Checkout", {action: :checkout, id: @order.id} %> 
+<% if @order.paid_for != true%>
+    <h2> Check out </h2>
+    <p> Total Cost $<%= "#{'%.02f' %  @order.total_cost}" %></p>
+    <%= button_to "Checkout", {action: :checkout, id: @order.id} %> 
+    <h2> Delete your order</h2>
+    <%= button_to "Delete", @order, method: :delete %>
+<% end %>
 
-<h2> Delete your order</h2>
-<%= button_to "delete", @order, method: :delete %>
+<h2> Return to User </h2>
+<%= button_to "Return", @order.user, method: :get %>

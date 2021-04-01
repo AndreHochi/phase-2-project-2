@@ -7,3 +7,6 @@ Would you like to pay now or pay with a discount?<h2>
 
 <%= button_to "Pay now", {action: :paynow, id: @order.id} %> </li>
 <%= button_to "Pay with discount", {action: :discount, id: @order.id} %> </li>
+
+<h2> Not enough money? Return to User to add funds.</h2>
+<%= button_to "Return", @order.user, method: :get %>
