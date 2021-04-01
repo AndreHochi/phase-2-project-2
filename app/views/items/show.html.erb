@@ -4,3 +4,4 @@
 <p>Price: $<%= "#{'%.02f' % @item.price}" %></p>
 <p>Ingredients: <%= @item.ingredients %></p>
 <p>Calories: <%= @item.calories %> kcal</p>
+<%= button_to "Return to welcome page", '/welcome', method: :get %>

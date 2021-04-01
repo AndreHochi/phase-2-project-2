@@ -17,7 +17,8 @@
 <p>Current Orders: </p> 
 <ul> <% @user.orders.each do |order| %>
     <% if order.paid_for == false %>
-        <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> </li>
+        <li> Receipt Number: <%= link_to order.id, order %> Cost- $<%= "#{'%.02f' %  order.total_cost}" %> 
+        <%= button_to "Delete", order, method: :delete %> </li>
         <% end %>
     <% end %>
 </ul>

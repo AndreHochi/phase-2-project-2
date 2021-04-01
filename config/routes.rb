@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post '/users/:id/add_five', to: 'users#add_five'
   post '/users/:id/add_one', to: 'users#add_one'
   post '/users/:id/add_ten', to: 'users#add_ten'
+  post '/users/:id/add_twenty', to: 'users#add_twenty'
 
 
   get 'welcome', to: 'users#welcome'
