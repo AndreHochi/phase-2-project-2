@@ -21,4 +21,20 @@ class User < ApplicationRecord
     def plus_twenty
         self.update({balance: self.balance + 20})
     end
+    
+    def paynow_balance(cost)
+        self.balance - cost
+    end
+
+    def discount_balance(cost)
+        self.balance - cost * 0.8
+    end
+
+    def paynow_reward(cost)
+        self.reward_points + 5
+    end
+
+    def discount_reward(cost)
+        self.reward_points - 20
+    end
 end
